@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import {BiHome,BiCart} from 'react-icons/bi';
+import { useSelector } from "react-redux";
 import './Navbar.css';
 
 function Navbar(){
+  const {cartProductIds} = useSelector(state => state.cart)
   return (
     <nav>
       <ul>
@@ -12,9 +14,9 @@ function Navbar(){
             </Link>
         </li>
         <li>
-          <Link to="/cart" >
+          <Link to="/cart" >image.png
             <BiCart />
-            <span>4</span>
+            <span>{cartProductIds.length}</span>
           </Link>
         </li>
       </ul>

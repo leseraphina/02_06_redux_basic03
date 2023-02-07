@@ -1,7 +1,15 @@
 import porductList from '../productList.json';
+import { useDispatch, useSelector } from 'react-redux';
+import {addToCart,removeFromCart} from '../redux/CartSlice'
 
 import './Home.css';
 function Home(){
+  const dispatch = useDispatch();
+  // const {cartProductIds} = useSelector(state => state.cart)
+  // const state = useSelector(state => state)
+  const {cartProductIds} = useSelector(state => state.cart);
+  console.log(cartProductIds);
+  // console.log(state);
   return (
     <div className='boxHome'>
      {porductList.products.map((product) => {
@@ -13,8 +21,14 @@ function Home(){
               <dt>{product.name}</dt>
               <dd>{product.price}</dd>
               <dd>
-                <button type="button">추가</button>
-                <button type="button">삭제</button>
+                { !cartProductIds.includes(product.id) && (<button type="button"
+                  onClick = {
+                    () => {dispatch(addToCart(product.id))}
+                  }>추가</button>)}
+               {cartProductIds.includes(product.id)  && (<button type="button"
+                  onClick={
+                    () => {dispatch(removeFromCart(product.id))}
+                  }>삭제</button>)}
               </dd>
             </dl>
           </figcaption>
