@@ -14,7 +14,7 @@ function Navbar(){
             </Link>
         </li>
         <li>
-          <Link to="/cart" >image.png
+          <Link to="/cart" >
             <BiCart />
             <span>{cartProductIds.length}</span>
           </Link>

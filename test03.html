@@ -8,6 +8,17 @@
 </head>
 <body>
   <script>
+    function main(x){
+      let dap ;
+      // console.log(x.indexOf('time'))
+      dap = x.filter((num,i) => {
+        return x.indexOf(num) === i;
+      })
+      return dap;
+    }
+// indexOf, ruduse,  for in, for or, map, filter,forEach....
+
+
     let str = ['good','time','good','time','flower'];
     console.log(main(str))
 
